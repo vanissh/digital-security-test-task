@@ -1,0 +1,34 @@
+$main: rgb(85, 22, 181);
+$second: #fff;
+$shaded: rgb(168, 168, 168);
+
+.navbar {
+    min-height: 50px;
+    background-color: $main;
+    display: flex;
+    align-items: center;
+    color: $second;
+    &-brand {
+        font-size: 22px;
+        text-align: center;
+        padding: 0px 10px 0px 20px;
+    }
+    &-list {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 300px;
+    }
+    .nav-item {
+        a {
+            text-decoration: none;
+            color: $second;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        a:hover {
+            color: $shaded;
+        }
+    }
+}

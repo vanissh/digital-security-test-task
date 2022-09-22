@@ -1,0 +1,17 @@
+$main: rgba(0, 0, 255, .2);
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.block {
+    background-color: #fff;
+    border: 1px solid $main;
+    border-radius: 10px;
+    box-shadow: 3px 3px 1px 1px $main;
+}
+
+.title {
+    font-weight: 500;
+}

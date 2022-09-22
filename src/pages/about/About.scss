@@ -1,0 +1,12 @@
+.home {
+    padding-top: 30px;
+    h1 {
+        color: rgb(23, 23, 23);
+    }
+    &-block {
+        width: 700px;
+        min-height: 200px;
+        padding: 30px;
+        color: rgb(0, 0, 0);
+    }
+}

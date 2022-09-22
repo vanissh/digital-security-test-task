@@ -1,25 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss'
+import { useEffect, useState } from 'react';
+import { useAppDispatch } from './hooks/hook';
+import { fetchData, fetchCode } from './slices/dataSlice';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+import NavBar from './components/navBar/NavBar';
+import About from './pages/about/About';
+import Converter from './pages/converter/Converter';
+import { getLang } from './utils/getLang'
 
 function App() {
+
+  const url = 'https://www.cbr-xml-daily.ru/daily_json.js'
+  const codeUrl = 'https://restcountries.com/v3.1/alpha/'
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(fetchData(url))
+    dispatch(fetchCode(codeUrl + getLang()))
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavBar />
+      <div className="container">
+        <Routes>
+          <Route path={'/'} element={<About />} />
+          <Route path={'/converter'} element={<Converter />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
